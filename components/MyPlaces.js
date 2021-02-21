@@ -27,7 +27,6 @@ function MyPlaces({ navigation }) {
         <ListItem.Subtitle>Click to show on map</ListItem.Subtitle>
         <Icon type="material" name="forward"/>
       </ListItem.Content>
-      
     </ListItem>
   );
   
