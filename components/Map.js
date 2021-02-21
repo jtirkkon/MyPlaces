@@ -6,7 +6,7 @@ import MapView, { Marker} from'react-native-maps';
 
 function Map ({route}) {
   const {addressToShow} = route.params;
-  console.log(addressToShow);
+  
   const [address, setAddress] = useState(addressToShow);
   const [position, setPosition] = useState(null);
   const [markerAddress, setMarkerAddress] = useState({street: '', city: ''});
@@ -17,7 +17,7 @@ function Map ({route}) {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
+        //console.log(data);
         setPosition({latitude: data.results[0].locations[0].latLng.lat, longitude: data.results[0].locations[0].latLng.lng});
         setMarkerAddress({street: data.results[0].locations[0].street, city: data.results[0].locations[0].adminArea5});
       })

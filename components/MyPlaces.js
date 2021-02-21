@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, View, FlatList } from 'react-native';
-import{ Input, Button } from'react-native-elements';
-import{ ListItem } from'react-native-elements';
+import { Input, Button } from'react-native-elements';
+import { ListItem } from'react-native-elements';
+import { Icon } from'react-native-elements';
 
 function MyPlaces({ navigation }) {
   const [address, setAddress] = useState('');
@@ -20,11 +21,13 @@ function MyPlaces({ navigation }) {
   renderItem = ({ item, index }) => (
     <ListItem bottomDivider onPress={() => navigation.navigate('Map', {addressToShow: item})}  onLongPress={() => deleteAddress(index)}>
       <ListItem.Content >
-        <ListItem.Title>{item}</ListItem.Title>
+        <ListItem.Title style={{width: 150}}>{item}</ListItem.Title>
       </ListItem.Content>
-      <ListItem.Content>  
-        <ListItem.Subtitle>show on map</ListItem.Subtitle>
+      <ListItem.Content style={{flexDirection: 'row'}}>  
+        <ListItem.Subtitle>Click to show on map</ListItem.Subtitle>
+        <Icon type="material" name="forward"/>
       </ListItem.Content>
+      
     </ListItem>
   );
   
@@ -44,7 +47,6 @@ function MyPlaces({ navigation }) {
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
